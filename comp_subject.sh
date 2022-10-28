@@ -29,7 +29,8 @@ cmake -DCMAKE_C_FLAGS="-g -O0 -fsanitize=fuzzer-no-link --coverage" \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_C_COMPILER="clang" -DCMAKE_CXX_COMPILER="clang++" \
   -DCMAKE_RULE_MESSAGES:BOOL=OFF -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON ..
 mv compile_commands.json ..
-make -j3 --no-print-directory > makelog
+# make -j3 --no-print-directory > makelog
+make V=1 > makelog
 echo "make return code: $?"
 cd ..
 
